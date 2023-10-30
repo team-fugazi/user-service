@@ -1,14 +1,14 @@
 from fastapi import APIRouter
 
 # Models & Config
-from models.user import User
+from ...models.user import User
 
 # Controllers
-from controllers.user_list import UserListRoutes
-from controllers.user_detail import UserDetailRoutes
+from ...controllers.user_list import UserListRoutes
+from ...controllers.user_detail import UserDetailRoutes
 
 # Database connection
-from database.mongodb import database
+from ...database.mongodb import database
 
 router = APIRouter(prefix="/users", tags=["users"])
 

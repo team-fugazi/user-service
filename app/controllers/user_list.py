@@ -2,7 +2,7 @@ from typing import List
 from fastapi import HTTPException, status
 
 # Models
-from models.user import User
+from ..models.user import User
 
 class UserListRoutes:
     def __init__(self, db):

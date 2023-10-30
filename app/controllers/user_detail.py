@@ -2,7 +2,7 @@ from fastapi import HTTPException, status
 from bson import ObjectId
 
 # models
-from models.user import User
+from ..models.user import User
 
 
 class UserDetailRoutes:
