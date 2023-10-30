@@ -2,7 +2,11 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from core.config import origins, details
-from models.user_model import User
+from models.user import User
+from database.mongodb import client
+from routers.router_v1 import router as user_v1
+
+
 app = FastAPI(
     title=details["title"],
     description=details["description"],
@@ -28,28 +32,13 @@ def read_root():
 # random dict
 
 
-# demo route
-@app.get("/demo")
-def read_demo() -> list[User]:
-    users = [
-        {
-            "id": 1,
-            "name": "John Doe",
-            "email": "john@doe.com"
-        },
-        {
-            "id": 2,
-            "name": "Jane Doe",
-            "email": "jane@doe.com"
-        },
-    ]
-
-    return users
 
 
+# @app.post("/v1/auth/createuser")
+# def read_demo(user:User):
 
-# def main():
-#     print("Hello World!")
+#     print(user)
 
-# if __name__ == "__main__":
-#     main()
+
+app.include_router(user_v1, prefix="/v1")
+
