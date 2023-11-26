@@ -21,10 +21,6 @@ class UserDetailRoutes:
 
         return User(**user)
 
-    # Do not allow to CREATE by id in user registry
-    def create_user(self) -> HTTPException:
-        raise HTTPException(status_code=status.HTTP_405_METHOD_NOT_ALLOWED)
-
     # Queries and updates a single user in registry by ID
     def update_user(self, id: str, user: User) -> dict:
         if not self.db.find_one(ObjectId(id)):

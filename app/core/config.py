@@ -1,5 +1,6 @@
 # core/config.py
 import os
+
 # from dotenv import load_dotenv
 
 
@@ -10,14 +11,14 @@ origins = [
 ]
 
 details = {
-    "title": "Fugazi User API",
-    "description": "Fugazi User API helps you do awesome stuff. 🚀",
+    "title": "Fugazi: User Management API 👥",
+    "description": "The User Management API is a microservice that facilitates the retrieval of user-related data. This service enables you to access and manage user information, supporting functionalities such as user profile retrieval, authentication, and authorization. 🕵️‍♂️",
     "version": "1.0.0",
     "contact": {
         "name": "bodeby",
         "url": "https://github.com/bodeby",
         "email": "thorbensen@gmail.com",
-    }
+    },
 }
 
 fake_service_db = {
