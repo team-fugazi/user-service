@@ -12,11 +12,9 @@ from ...database.mongodb import database
 
 router = APIRouter(prefix="/users", tags=["users"])
 
-print(database)
-
 # Controllers
-list_routes = UserListRoutes(database.users)
-detail_routes = UserDetailRoutes(database.users)
+list_routes = UserListRoutes(database.profiles)
+detail_routes = UserDetailRoutes(database.profiles)
 
 
 # Controllers added to Routes
@@ -58,3 +56,7 @@ def put_user_detail(id: str, user: User):
 @router.delete("/{id}", tags=["Detail"])
 def delete_user_detail(id: str):
     return detail_routes.delete_user(id)
+
+@router.get("/me", tags=["Detail"])
+def get_user_with_token():
+    return "get_user_with_token"

@@ -1,10 +1,12 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+# Config and Routes
 from .core.config import origins, details
-from .models.user import User
-from .database.mongodb import client
+
+# Routes
 from .routers.v1.users import router as user_v1
+from .routers.v1.actions import router as action_v1
 
 
 app = FastAPI(
@@ -23,22 +25,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# routers
+app.include_router(user_v1, prefix="/v1")
+app.include_router(action_v1, prefix="/v1")
+
 
 # Root route
 @app.get("/")
 def read_root():
     return {"ping": "pong"}
-
-# random dict
-
-
-
-
-# @app.post("/v1/auth/createuser")
-# def read_demo(user:User):
-
-#     print(user)
-
-
-app.include_router(user_v1, prefix="/v1")
-

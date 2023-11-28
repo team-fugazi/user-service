@@ -1,7 +1,6 @@
-from pydantic import BaseModel
-from typing import List, Optional
 from pydantic import BaseModel, Field
 from datetime import datetime
+from typing import List
 
 class Ban(BaseModel):
     ban_id: str = Field(..., description="Reference to a ban document")
