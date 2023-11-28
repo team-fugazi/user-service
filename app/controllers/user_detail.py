@@ -20,6 +20,18 @@ class UserDetailRoutes:
             )
 
         return User(**user)
+    
+        # Queries a single user in registry by ID
+    def get_user_by_auth0(self, auth0_user_id: str) -> User:
+        user = self.db.find_one(auth0_user_id)
+
+        if not user:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=f"Error: user {id} was not found",
+            )
+
+        return User(**user)
 
     # Queries and updates a single user in registry by ID
     def update_user(self, id: str, user: User) -> dict:

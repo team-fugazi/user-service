@@ -1,6 +1,12 @@
 from pydantic import BaseModel, Field
 from datetime import datetime
+from pydantic.functional_validators import BeforeValidator
 from typing import List
+from typing_extensions import Annotated
+
+
+
+PyObjectId = Annotated[str, BeforeValidator(str)]
 
 class Ban(BaseModel):
     ban_id: str = Field(..., description="Reference to a ban document")
