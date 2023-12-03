@@ -2,7 +2,6 @@ from typing import Any, Dict, Optional
 from typing_extensions import Annotated, Doc
 from fastapi import HTTPException, status, Depends, Request
 from fastapi.security import SecurityScopes, HTTPAuthorizationCredentials, HTTPBearer , OAuth2AuthorizationCodeBearer# 👈 new imports
-from fastapi_users.authentication import AuthenticationBackend
 from ..core.auth_config import get_settings
 import jwt
 
